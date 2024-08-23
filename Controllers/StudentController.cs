@@ -1,15 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SchoolProject.Models;
+using SchoolProject.Repository;
 
 namespace SchoolProject.Controllers
 {
     public class StudentController : Controller
     {
+        private readonly IStudentRepository _studentRepository;
+        public StudentController(IStudentRepository studentRepository)
+        {
+            _studentRepository = studentRepository;
+        }
         // GET List of students
         [HttpGet]
         public ActionResult Index()
         {
-
+            List<Student> Stdlist = _studentRepository.GetAllStudents();
             return View();
         }
 

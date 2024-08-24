@@ -28,12 +28,14 @@ namespace SchoolProject.Controllers
         [HttpPost]
         public ActionResult Create(Student student)
         {
+            _studentRepository.Create(student);
             return View();
         }
 
         [HttpDelete]
         public ActionResult Delete(int studentID)
         {
+            _studentRepository.Delete(studentID);
             return View();
         }
 
@@ -46,6 +48,7 @@ namespace SchoolProject.Controllers
         [HttpPost]
         public ActionResult Register(int studentID, int courseId)
         {
+            _studentRepository.Register(studentID, courseId);
             return View();
         }
     }
